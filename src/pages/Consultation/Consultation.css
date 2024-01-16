@@ -1,0 +1,48 @@
+.consultation-section {
+  padding-top: 2rem;
+  background-color: #f1f4f7;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 4rem;
+  text-align: center;
+  color: grey;
+  border: 2px solid #f1f4f7;
+  border-radius: 15px;
+}
+.consultation-section p {
+  padding-top: 1rem;
+  width: 50%;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 999px) {
+  .consultation-section p {
+    width: 90%;
+    text-align: left;
+  }
+
+  .consultation-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .submit {
+    width: 58%;
+    margin: 0 auto;
+  }
+}

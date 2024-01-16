@@ -1,0 +1,29 @@
+.what-we-do {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 5rem;
+  text-align: center;
+  color: grey;
+}
+
+.line {
+  margin: 0 auto;
+  width: 5rem;
+  height: 0.2rem;
+  background-color: #00bfff;
+  margin-bottom: 2rem;
+}
+
+.flex-cads {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 999px) {
+  .flex-cads {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

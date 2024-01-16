@@ -1,0 +1,105 @@
+input,
+select {
+  width: 20em;
+  height: 2rem;
+  border-radius: 5px;
+}
+input {
+  border: 0;
+  border-bottom: 4px solid #9acd32;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+input[type="text"] {
+  padding: 10px;
+  color: grey;
+}
+input[type="email"] {
+  padding: 10px;
+  color: grey;
+}
+input[type="tel"] {
+  padding: 10px;
+  color: grey;
+}
+
+input:focus {
+  outline: none;
+}
+
+form {
+  width: 50%;
+  background-color: #00bfff;
+  border: 2px solid #00bfff;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1em;
+}
+
+.inner-flex {
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.5rem;
+}
+
+.alone {
+  width: 83%;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.alone input {
+  width: 100%;
+}
+
+label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+textarea {
+  padding: 10px;
+  color: grey;
+  border-radius: 8px;
+  outline: none;
+}
+
+.submit-btn {
+  margin: 0 auto;
+  margin-top: 2rem;
+  width: 84%;
+  margin-bottom: 2rem;
+}
+
+select {
+  outline: none;
+}
+
+@media screen and (max-width: 1285px) {
+  form {
+    width: 100%;
+  }
+
+  .flex {
+    flex-direction: column;
+  }
+
+  .alone {
+    width: 17rem;
+  }
+
+  .submit-btn {
+    width: 50%;
+  }
+}

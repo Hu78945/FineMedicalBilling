@@ -1,0 +1,6 @@
+.hero-sec {
+  /* background: url("/src//assets/car-1.jpg"); */
+  height: 82vh;
+  background-image: url("/src//assets//car-1.jpg");
+  background-position: center;
+}
