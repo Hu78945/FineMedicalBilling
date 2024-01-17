@@ -27,7 +27,7 @@ function NavBar() {
     <>
       <nav>
         <div className="logo">
-          <img src="/src/assets/Fine Logo.png" alt="logo" />
+          <img src="/Fine Logo.png" alt="logo" />
         </div>
         <div className="nav-links">
           <ul>

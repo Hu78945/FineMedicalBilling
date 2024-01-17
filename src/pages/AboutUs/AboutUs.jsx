@@ -28,7 +28,7 @@ function AboutUs() {
   return (
     <div className="about-us" id="aboutUsSection">
       <div className="image hidden" ref={theImage}>
-        <img src="/src/assets/doctor.jpg" alt="" />
+        <img src="/doctor.jpg" alt="" />
       </div>
       <div className="aboutus-content hidden" ref={content}>
         <div className="heading">

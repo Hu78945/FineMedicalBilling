@@ -18,7 +18,7 @@ function Footer() {
     <footer>
       <div className="section1">
         <div className="logo">
-          <img src="/src/assets/Fine Logo.png" alt="" />
+          <img src="/Fine Logo.png" alt="" />
         </div>
         <p>Unlocking Revenue Potential, Empowering Healthcare Excellence</p>
         <div className="socials-logos">
@@ -87,14 +87,14 @@ function Footer() {
         <h2>Contact</h2>
         <div className="item1">
           <FontAwesomeIcon icon={faPhoneVolume} size="2x" />
-          <a href="tel:123456789" className="grey">
-            123456789
+          <a href="tel:+14013149711" className="grey">
+            +14013149711
           </a>
         </div>
         <div className="item1">
           <FontAwesomeIcon icon={faEnvelope} size="2x" />
-          <a href="mailto:" className="grey">
-            info@fineMeidcalBilling.com
+          <a href="mailto:info@finemedicalbilling.com" className="grey">
+            info@finemedicalbilling.com
           </a>{" "}
         </div>
         <div className="item1 long">

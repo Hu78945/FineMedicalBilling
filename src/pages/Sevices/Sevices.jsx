@@ -45,7 +45,6 @@ function Services() {
       shortCard4Ref,
     ];
     myrefs.forEach((entry) => {
-      console.log(entry);
       observer.observe(entry.current);
     });
   }, []);

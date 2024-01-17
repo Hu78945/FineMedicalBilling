@@ -40,7 +40,6 @@ function WhatWeDo() {
       card8Ref,
     ];
     myrefs.forEach((entry) => {
-      console.log(entry);
       observer.observe(entry.current);
     });
   }, []);
