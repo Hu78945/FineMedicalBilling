@@ -1,5 +1,7 @@
 import "./Form.css";
 import { useState } from "react";
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser'
 
 function Form() {
   const [formData, setFormData] = useState({
@@ -12,16 +14,23 @@ function Form() {
     "Total AR": "",
     "Your Message": "",
   });
-
+  const form = useRef();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  function search(e) {
+  const sendEmail = (e) => {
     e.preventDefault();
-    console.log(formData);
-  }
+
+    emailjs.sendForm('service_6anlahe', 'template_qnoa9dt', form.current, 'f1Fb3xXPNlhp-psEX')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+
   return (
-    <form onSubmit={search}>
+    <form ref={form} onSubmit={sendEmail}>
       <div className="flex">
         <div className="inner-flex">
           <label htmlFor="Name">Name</label>
@@ -38,10 +47,10 @@ function Form() {
           <label htmlFor="Business Name">Business Name</label>
           <input
             type="text"
-            name="Business Name"
+            name="businessName"
             required
             onChange={handleChange}
-            value={formData["Business Name"] || ""}
+            value={formData["businessName"] || ""}
           />
         </div>
       </div>
@@ -50,7 +59,7 @@ function Form() {
           <label htmlFor="Email">Email</label>
           <input
             type="email"
-            name="Email"
+            name="email"
             required
             onChange={handleChange}
             value={formData.Email || ""}
@@ -71,10 +80,10 @@ function Form() {
         <div className="inner-flex">
           <label htmlFor="Monthly Billing">Monthly Billing</label>
           <select
-            name="Monthly Billing"
+            name="Monthly_Billing"
             required
             onChange={handleChange}
-            value={formData["Monthly Billing"] | ""}
+            value={formData["Monthly_Billing"] | ""}
           >
             <option value="1K-3K">1K-3K</option>
             <option value="31K-100K">31K-100K</option>
@@ -100,22 +109,22 @@ function Form() {
         <label htmlFor="Total AR">Total AR</label>
         <input
           type="text"
-          name="Total AR"
+          name="Total_AR"
           required
           onChange={handleChange}
-          value={formData["Total AR"] || ""}
+          value={formData["Total_AR"] || ""}
         />
       </div>
       <div className="inner-flex alone">
         <label htmlFor="Your Message">Your Message</label>
         <textarea
-          name="Your Message"
+          name="message"
           id=""
           cols="30"
           rows="10"
           required
           onChange={handleChange}
-          value={formData["Your Message"] || ""}
+          value={formData["message"] || ""}
         ></textarea>
       </div>
       <div className="submit-btn">
