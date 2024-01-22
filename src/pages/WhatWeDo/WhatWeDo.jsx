@@ -1,10 +1,14 @@
 import "./WhatWeDo.css";
 import { useEffect, useRef } from "react";
 import {
+  faArrowsSpin,
   faBriefcase,
   faBuilding,
+  faDisplay,
   faNotesMedical,
   faPerson,
+  faReceipt,
+  faWeightScale,
 } from "@fortawesome/free-solid-svg-icons";
 import Card from "../../components/Cards/cards";
 
@@ -45,7 +49,7 @@ function WhatWeDo() {
   }, []);
   return (
     <div className="what-we-do" id="specialtiesSection">
-      <h2>What we do</h2>
+      <h2>Specialties</h2>
       <div className="line">
         <span></span>
       </div>
@@ -97,7 +101,7 @@ function WhatWeDo() {
           title={"Denial Management and Appeals"}
           h1color={"#626d9b"}
           h1size={"1.5rem"}
-          icon={faNotesMedical}
+          icon={faDisplay}
           ref={card5Ref}
         />
         <Card
@@ -107,7 +111,7 @@ function WhatWeDo() {
           title={"Patient Billing and Collections"}
           h1color={"#626d9b"}
           h1size={"1.5rem"}
-          icon={faNotesMedical}
+          icon={faReceipt}
           ref={card6Ref}
         />
         <Card
@@ -117,7 +121,7 @@ function WhatWeDo() {
           title={"Auditing and Compliance"}
           h1color={"#626d9b"}
           h1size={"1.5rem"}
-          icon={faNotesMedical}
+          icon={faWeightScale}
           ref={card7Ref}
         />
         <Card
@@ -127,7 +131,7 @@ function WhatWeDo() {
           title={"Revenue Cycle Management Solutions"}
           h1color={"#626d9b"}
           h1size={"1.5rem"}
-          icon={faNotesMedical}
+          icon={faArrowsSpin}
           ref={card8Ref}
         />
       </div>

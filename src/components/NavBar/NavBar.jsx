@@ -91,7 +91,15 @@ function NavBar() {
           </ul>
         </div>
         <div className="callToAction">
-          <p>Request Demo</p>
+          <Link
+            to="contactUsSection"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+          >
+            <p>Request Demo</p>
+          </Link>
         </div>
         <div onClick={handleClick} className="toogle-btn">
           <FontAwesomeIcon icon={faBars} color="white" />{" "}
@@ -156,7 +164,15 @@ function NavBar() {
         </li>
         <li className="special">
           <div className="">
-            <p>Request Demo</p>
+            <Link
+              to="contactUsSection"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              <p>Request Demo</p>
+            </Link>
           </div>
         </li>
       </div>

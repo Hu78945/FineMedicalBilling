@@ -1,7 +1,8 @@
 import "./Form.css";
 import { useState } from "react";
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser'
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import Model from "../Model/Model";
 
 function Form() {
   const [formData, setFormData] = useState({
@@ -14,19 +15,38 @@ function Form() {
     "Total AR": "",
     "Your Message": "",
   });
+  const [isSent, setIsSent] = useState(false);
+  const [submissionSignal, setSubmissionSignal] = useState("");
   const form = useRef();
+  const submitBtn = useRef(null);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_6anlahe', 'template_qnoa9dt', form.current, 'f1Fb3xXPNlhp-psEX')
-      .then((result) => {
+    emailjs
+      .sendForm(
+        "service_6anlahe",
+        "template_qnoa9dt",
+        form.current,
+        "f1Fb3xXPNlhp-psEX"
+      )
+      .then(
+        (result) => {
           console.log(result.text);
-      }, (error) => {
+          if (result.text === "OK") {
+            setIsSent(true);
+            setSubmissionSignal("Form Have Been Submitted Successfully.");
+            console.log((submitBtn.current.style.display = "none"));
+          }
+        },
+        (error) => {
           console.log(error.text);
-      });
+          setIsSent(true);
+          setSubmissionSignal("There was an error. Please try again.");
+        }
+      );
   };
 
   return (
@@ -57,13 +77,7 @@ function Form() {
       <div className="flex">
         <div className="inner-flex">
           <label htmlFor="Email">Email</label>
-          <input
-            type="email"
-            name="email"
-            required
-            onChange={handleChange}
-            value={formData.Email || ""}
-          />
+          <input type="email" name="email" required onChange={handleChange} />
         </div>
         <div className="inner-flex">
           <label htmlFor="Phone">Phone</label>
@@ -83,7 +97,7 @@ function Form() {
             name="Monthly_Billing"
             required
             onChange={handleChange}
-            value={formData["Monthly_Billing"] | ""}
+            value={formData["Monthly_Billing"] | "1K-3K"}
           >
             <option value="1K-3K">1K-3K</option>
             <option value="31K-100K">31K-100K</option>
@@ -97,7 +111,7 @@ function Form() {
             name="# of Providers"
             required
             onChange={handleChange}
-            value={formData["# of Providers"] || ""}
+            value={formData["# of Providers"] || "1-5"}
           >
             <option value="1-5">1-5</option>
             <option value="6-10">6-10</option>
@@ -132,10 +146,12 @@ function Form() {
           type="submit"
           className="submit"
           style={{ backgroundColor: "#9acd32", fontSize: "1.2rem" }}
+          ref={submitBtn}
         >
           Submit
         </button>
       </div>
+      {isSent ? <Model des={submissionSignal} /> : ""}
     </form>
   );
 }

@@ -1,6 +1,7 @@
 import NavBar from "../../components/NavBar/NavBar";
 import "./HomePage.css";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { Link } from "react-scroll";
 
 function HomePage() {
   const containerRef = useRef(null);
@@ -56,6 +57,39 @@ function HomePage() {
     }
   };
 
+  //Automatically change Image
+  const images = ["/car-1.jpg", "/car-2.jpg", "/car-3.jpg"];
+  let currentIndex = 0;
+  const changeImage2 = () => {
+    const imageUrl = images[currentIndex];
+    heading.current.innerText = getImageText(imageUrl);
+    containerRef.current.style.backgroundImage = `url("${imageUrl}")`;
+    currentIndex = (currentIndex + 1) % images.length;
+  };
+
+  const getImageText = (imageUrl) => {
+    switch (imageUrl) {
+      case "/car-1.jpg":
+        return "ELEVATE YOUR PRACTICE'S FINANCES WITH EXPERT MEDICAL BILLING";
+      case "/car-2.jpg":
+        return "UNLOCK YOUR REVENUE POTENTIAL: SPECIALIZED MEDICAL BILLING SOLUTIONS";
+      case "/car-3.jpg":
+        return "STREAMLINED BILLING FOR HEALTHCARE EXCELLENCE: PHYSICIANS REVENUE EXPERTS";
+      default:
+        return "";
+    }
+  };
+
+  useEffect(() => {
+    // Change the image every 5 seconds
+    const intervalId = setInterval(() => {
+      changeImage2();
+    }, 5000);
+
+    // Clear the interval when the component is unmounted
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <>
       <div className="big-container" ref={containerRef} id="homeSection">
@@ -76,7 +110,16 @@ function HomePage() {
                 </p>
 
                 <div className="details">
-                  <p>Details</p>
+                  <Link
+                    to="contactUsSection"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    color="white"
+                  >
+                    <p>Details</p>
+                  </Link>
                 </div>
               </div>
               <div className="btns">
